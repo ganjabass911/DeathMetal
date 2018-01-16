@@ -1,0 +1,18 @@
+server:
+  port: 3941
+security:
+  basic:
+    realm: death_metal
+spring:
+  datasource:
+    url: jdbs.mysql://127.0.0.1:3306;databaseName=DEMO_SPRING_SSECURITU
+    username: <user>
+    password: <394149790>
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    shop-sql: true
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLDialect
+     properties:
+      hibernate:
+        enable_lazy_load_no_trans: true
