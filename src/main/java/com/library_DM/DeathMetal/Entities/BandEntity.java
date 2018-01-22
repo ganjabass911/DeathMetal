@@ -1,6 +1,7 @@
 package com.library_DM.DeathMetal.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import java.util.List;
@@ -22,6 +23,7 @@ public class BandEntity {
     private String active;
 
     @OneToMany(mappedBy = "band")
+    @JsonManagedReference
     private List<AlbumEntity> albums;
 
     public BandEntity(){}

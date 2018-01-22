@@ -1,5 +1,6 @@
 package com.library_DM.DeathMetal.Entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
@@ -14,7 +15,7 @@ public class AlbumEntity {
 
     @ManyToOne
     @JoinColumn(name = "band")
-    @JsonManagedReference
+    @JsonBackReference
     private BandEntity band;
 
     private String title;
@@ -22,6 +23,7 @@ public class AlbumEntity {
     private long year;
 
     @OneToMany(mappedBy = "album")
+    @JsonManagedReference
     private List<ReviewEntity> reviewes;
 
     public AlbumEntity() {
@@ -37,8 +39,8 @@ public class AlbumEntity {
         return id;
     }
 
-    public BandEntity getBand() {
-        return band;
+    public String getBand() {
+        return band.getName();
     }
 
     public String getTitle() {
