@@ -1,10 +1,9 @@
 package com.library_DM.DeathMetal.Repositories;
 
-import com.library_DM.DeathMetal.Entities.Band;
+import com.library_DM.DeathMetal.Entities.AlbumEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RepBand extends CrudRepository<Band, Long> {
-    Iterable<Band> findByNameContaining(String name);
+public interface AlbumRepository extends CrudRepository<AlbumEntity, Long>{
 }

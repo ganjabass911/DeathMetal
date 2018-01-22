@@ -1,43 +1,34 @@
 package com.library_DM.DeathMetal.Entities;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "bands")
-public class Band {
+@Table(name = "BANDS")
+public class BandEntity {
 
     @Id
     @GeneratedValue
     private long id;
-
     private String name;
-
     private String country;
-
     private String status;
-
-    private  long formed_in;
-
+    @JsonIgnore
+    private Long formed_in;
     private String genre;
-
     private String theme;
-
     private String active;
 
-    public Band(String name, String country, String status, long formed_in, String genre, String theme, String active) {
+    @OneToMany(mappedBy = "band")
+    private List<AlbumEntity> albums;
+
+    public BandEntity(){}
+
+    public BandEntity(long id, String name) {
+        this.id = id;
         this.name = name;
-        this.country = country;
-        this.status = status;
-        this.formed_in = formed_in;
-        this.genre = genre;
-        this.theme = theme;
-        this.active = active;
-    }
-
-    public Band() {
-
     }
 
     public long getId() {
@@ -71,4 +62,10 @@ public class Band {
     public String getActive() {
         return active;
     }
+
+    public List<AlbumEntity> getAlbums() {
+        return albums;
+    }
+
+
 }

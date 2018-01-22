@@ -1,18 +1,18 @@
 server:
-  port: 3941
+  port: 1234
 security:
   basic:
     realm: death_metal
 spring:
   datasource:
-    url: jdbs.mysql://127.0.0.1:3306;databaseName=DEMO_SPRING_SSECURITU
-    username: <user>
-    password: <394149790>
+    url: jdbc:mysql://127.0.0.1:3306/death_metal
+    username: root
+    password: 123
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
-    shop-sql: true
+    show-sql: true
     hibernate:
       dialect: org.hibernate.dialect.MySQLDialect
-     properties:
+    properties:
       hibernate:
         enable_lazy_load_no_trans: true
