@@ -36,9 +36,9 @@ public class UserService implements org.springframework.security.core.userdetail
 
             userRepository.save(newUser);
 
-            return "Successfull";
+            return "Успешно";
         }
-        return "Fail";
+        return "Что-то не так";
     }
 
     @Override
@@ -47,14 +47,27 @@ public class UserService implements org.springframework.security.core.userdetail
 
         try {
             UserEntity client = userRepository.findByUsername(username);
-            loadedUser = new org.springframework.security.core.GrantedAuthority(
+            loadedUser = new org.springframework.security.core.userdetails.User(
                     client.getUsername(),
                     client.getPassword(),
                     client.getRules());
         } catch (Exception repositoryProblem){
-            throw  new InternalAuthenticationServiceException(repositoryProblem.getMessage(),repositoryProblem);
-
+            throw new InternalAuthenticationServiceException(repositoryProblem.getMessage(), repositoryProblem);
         }
-        return loadedUser;
+        return  loadedUser;
     }
+
+//    @Override
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        UserDetails loadedUser;
+//
+//        try {
+//            UserEntity client = userRepository.findByUsername(username);
+//            loadedUser = new org.springframework.security.core.GrantedAuthority(client.getUsername(),client.getPassword(),client.getRules());
+//        } catch (Exception repositoryProblem){
+//            throw  new InternalAuthenticationServiceException(repositoryProblem.getMessage(),repositoryProblem);
+//
+//        }
+//        return loadedUser;
+//    }
 }

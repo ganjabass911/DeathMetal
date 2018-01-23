@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Группы</title>
+</head>
+<body>
+<div class="baseblock">
+    <h1>Все группы</h1>
+
+    <div>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Название</th>
+                <th>Страна</th>
+                <th>Статус</th>
+                <th>Год основания</th>
+                <th>Жанр</th>
+                <th>Темы</th>
+                <th>Активность</th>
+                <th>Альбомы</th>
+            </tr>
+            <tr th:each ="band : ${bands}">
+
+                <td th:utext="${band.id}">...</td>
+                <td th:utext="${band.name}">...</td>
+                <td th:utext="${band.country}">...</td>
+                <td th:utext="${band.status}">...</td>
+                <!--<td th:utext="${band.formed_id}">...</td>-->
+                <td th:utext="${band.genre}">...</td>
+                <td th:utext="${band.theme}">...</td>
+                <td th:utext="${band.active}">...</td>
+                <!--/*@thymesVar id="getTitle" type="com.library_DM.DeathMetal.Entities.AlbumEntity"*/-->
+                <td th:utext="${band.albums}">...</td>
+            </tr>
+            <div class="inner"><a th:href="@{/index}">Ссылка на главную</a></div>
+        </table>
+    </div>
+</div>
+</body>
+</html>

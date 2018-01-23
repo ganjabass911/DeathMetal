@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Рецензии</title>
+</head>
+<body>
+<div class="baseblock">
+    <h1>Все рецензии</h1>
+
+    <div>
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>Альбом</th>
+                <th>Группа</th>
+                <th>Оценка</th>
+                <th>Текст</th>
+            </tr>
+            <tr th:each ="review : ${reviewes}">
+
+                <td th:utext="${review.id}">...</td>
+                <td th:utext="${review.album}">...</td>
+                <td th:utext="${review.title}">...</td>
+                <td th:utext="${review.score}">...</td>
+                <td th:utext="${review.content}">...</td>
+
+            </tr>
+            <div class="inner"><a th:href="@{/index}">Ссылка на главную</a></div>
+        </table>
+    </div>
+</div>
+</body>
+</html>

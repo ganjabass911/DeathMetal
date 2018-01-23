@@ -20,7 +20,7 @@ public class UserEntity {
             joinColumns = @JoinColumn(name = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "RULE_ID"))
     @JsonManagedReference
-    private Set<RuleEntity> rules;
+    private Set<Optional<RuleEntity>> rules;
 
     public UserEntity() {
     }
@@ -41,7 +41,7 @@ public class UserEntity {
         this.username = username;
     }
 
-    public Set<RuleEntity> getRules() {
+    public Set<Optional<RuleEntity>> getRules() {
         return rules;
     }
 

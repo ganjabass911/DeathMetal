@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Заработало</title>
+</head>
+<body>
+<div class="baseblock">
+    <h1>Эта чертова хень работает!</h1>
+    <div class="button">
+        <div class="outer">
+            <div class="height">
+                <div class="inner"><a th:href="@{/reg}">Регистрация</a></div>
+                <div class="inner"><a th:href="@{/login}">Авторизация</a></div>
+                <div class="inner"><a th:href="@{/logout}">Выйти</a></div>
+                <br/><br/>
+                <div class="inner"><a th:href="@{/bands}"> все группы</a></div>
+                <div class="inner"><a th:href="@{/albums}"> все альбомы</a></div>
+                <div class="inner"><a th:href="@{/reviewes}"> все рецензии</a></div>
+                <div>поиск группо по id => url: /bandID</div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
