@@ -20,9 +20,15 @@ public class UserEntity {
             joinColumns = @JoinColumn(name = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "RULE_ID"))
     @JsonManagedReference
-    private Set<Optional<RuleEntity>> rules;
+    private Set<RuleEntity> user_rule;
 
     public UserEntity() {
+    }
+
+    public UserEntity(String username, String password, Set<RuleEntity> user_rule) {
+        this.username = username;
+        this.password = password;
+        this.user_rule = user_rule;
     }
 
     public long getId() {
@@ -41,12 +47,12 @@ public class UserEntity {
         this.username = username;
     }
 
-    public Set<Optional<RuleEntity>> getRules() {
-        return rules;
+    public Set<RuleEntity> getUser_rule() {
+        return user_rule;
     }
 
-    public void setRules(Set<Optional<RuleEntity>> rules) {
-        this.rules = rules;
+    public void setUser_rule(Set<RuleEntity> user_rule) {
+        this.user_rule = user_rule;
     }
 
     public String getPassword() {

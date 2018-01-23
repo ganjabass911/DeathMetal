@@ -15,7 +15,7 @@
                 <th>Название</th>
                 <th>Страна</th>
                 <th>Статус</th>
-                <th>Год основания</th>
+                <!--<th>Год основания</th>-->
                 <th>Жанр</th>
                 <th>Темы</th>
                 <th>Активность</th>
@@ -32,7 +32,7 @@
                 <td th:utext="${band.theme}">...</td>
                 <td th:utext="${band.active}">...</td>
                 <!--/*@thymesVar id="getTitle" type="com.library_DM.DeathMetal.Entities.AlbumEntity"*/-->
-                <td th:utext="${band.albums}">...</td>
+                <td th:utext="${band.albums.get(#ids)}">...</td>
             </tr>
             <div class="inner"><a th:href="@{/index}">Ссылка на главную</a></div>
         </table>

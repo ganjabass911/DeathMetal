@@ -16,7 +16,7 @@ public class RuleEntity implements GrantedAuthority{
 
     private String rule;
 
-    @ManyToMany(mappedBy = "rules")
+    @ManyToMany(mappedBy = "user_rule")
     @JsonBackReference
     private Set<UserEntity> users;
 
